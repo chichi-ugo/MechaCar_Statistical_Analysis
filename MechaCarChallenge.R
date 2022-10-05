@@ -18,10 +18,16 @@ summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_cleara
 SusCoil_df <- read.csv(file='Suspension_Coil.csv',check.names = F,stringsAsFactors = F)
 
 # Create a 'total_summary' dataframe using summarize() function
-total_summary <- SusCoil_df %>% summarize(Mean_PSI=mean(PSI), Median_PSI=median(PSI),Variance=var(PSI), Stan_Dev=sd(PSI))
+total_summary <- SusCoil_df %>% summarize(Mean_PSI=mean(PSI), 
+                                          Median_PSI=median(PSI),
+                                          Variance=var(PSI), 
+                                          Stan_Dev=sd(PSI))
 
 # Create a 'lot_summary' dataframe using group_by() and summarize() functions
-lot_summary <- SusCoil_df %>% group_by(Manufacturing_Lot) %>% summarize(Mean_PSI=mean(PSI), Median_PSI=median(PSI),Variance=var(PSI), Stan_Dev=sd(PSI), .groups = 'keep')
+lot_summary <- SusCoil_df %>% group_by(Manufacturing_Lot) %>% summarize(Mean_PSI=mean(PSI), 
+                                                                        Median_PSI=median(PSI),
+                                                                        Variance=var(PSI), 
+                                                                        Stan_Dev=sd(PSI), .groups = 'keep')
 
 
 # Deliverable 3: T-Tests on Suspension Coils
